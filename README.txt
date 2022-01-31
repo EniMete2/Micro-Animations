@@ -1,0 +1,1 @@
+This is some svg animation practice
