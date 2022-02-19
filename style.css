@@ -32,3 +32,9 @@ body {
 .messages-title {
   padding-left: 2rem;
 }
+
+.home-svg,
+.notifications-svg,
+.messages-svg {
+  overflow: visible;
+}
