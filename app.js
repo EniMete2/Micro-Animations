@@ -4,6 +4,7 @@ const tl = gsap.timeline({
 
 const home = document.querySelector(".home");
 const notifications = document.querySelector(".notifications");
+const messages = document.querySelector(".messages");
 
 gsap.set(".feather", { scale: 0 });
 
@@ -15,6 +16,7 @@ home.addEventListener("click", () => {
     { y: 20, scale: 1.5, duration: 1, stagger: 0.2 }
   );
   gsap.fromTo(".right-feather", { x: 0 }, { x: 5 });
+  gsap.fromTo(".feather", { opacity: 1 }, { opacity: 0, duration: 3 });
 });
 
 gsap.set(".bell", { transformOrigin: "top center" });
@@ -37,4 +39,18 @@ notifications.addEventListener("click", () => {
     { scale: 0, opacity: 1 },
     { scale: 1.3, opacity: 0, duration: 1 }
   );
+});
+
+gsap.set(".flap", { transformOrigin: "top center" });
+
+messages.addEventListener("click", () => {
+  tl.fromTo(".messages-svg", { scale: 1 }, { scale: 0.9 });
+  tl.fromTo(".flap", { scale: 1 }, { scale: -1 }, "<50%");
+  tl.fromTo(".messages-svg", { scale: 0.9 }, { scale: 1 }, "<50%");
+  tl.fromTo(
+    ".note",
+    { opacity: 1, y: 0 },
+    { opacity: 0, y: -40, duration: 0.75 }
+  );
+  tl.to(".flap", { scale: 1 });
 });
